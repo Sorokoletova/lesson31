@@ -12,16 +12,17 @@ class UserFactory(factory.django.DjangoModelFactory):
     email = factory.Faker("email")
 
 
-class CategoryFactory(factory.django.DjangoModelFactory):
+class CategorieFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = Categorie
 
     slug = factory.Faker("word")
+    name = factory.Faker("word")
 
 
 class AdsFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = Ads
 
-    category = factory.SubFactory(CategoryFactory)
+    category = factory.SubFactory(CategorieFactory)
     author = factory.SubFactory(UserFactory)
